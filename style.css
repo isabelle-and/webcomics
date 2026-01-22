@@ -1,0 +1,164 @@
+   :root{
+
+      --lens-size: 600px;
+      --lens-reveal-radius: 238px;
+
+      --lens-anchor-x: 82%;
+      --lens-anchor-y: 86%;
+
+      --lens-glass-x: 42%;
+      --lens-glass-y: 41%;
+
+
+      --btn-top: 78%;
+      --btn-left: 50%;
+      --btn-width: 36%;
+      --btn-height: 8%;
+
+      --card-top: 65.7%;
+      --card-height: 24%;
+      --card-width: 20.9%;
+      --card-gap: 1.8%;
+      --card-left-start: 6.5%;
+
+      --debug-outline: 0; 
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { margin: 0; }
+    body{
+      background: #000;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    section.page{
+      position: relative;
+      width: 100%;
+      background: #000;
+    }
+
+    .stage{
+      position: relative;
+      width: 100vw;
+      margin: 0;
+      background: #000;
+    }
+
+    .art{
+      width: 100vw;
+      height: auto;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .overlay{
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    #p2Reveal{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+
+      clip-path: circle(0px at 50% 50%);
+      transition: none;
+      will-change: clip-path;
+      pointer-events: none;
+    }
+
+    #btnPegarLupa{
+      position: absolute;
+      top: var(--btn-top);
+      left: var(--btn-left);
+      width: var(--btn-width);
+      height: var(--btn-height);
+      transform: translate(-50%, -50%);
+      z-index: 5;
+
+      pointer-events: auto;
+      cursor: pointer;
+
+      background: rgba(255,255,255, calc(0.06 * var(--debug-outline)));
+      border: 2px solid rgba(255,255,255, calc(0.7 * var(--debug-outline)));
+      border-radius: 14px;
+    }
+    #btnPegarLupa:focus-visible{
+      outline: 3px solid rgba(255,255,255,.9);
+      outline-offset: 6px;
+    }
+
+    .card{
+      position: absolute;
+      top: var(--card-top);
+      height: var(--card-height);
+      width: var(--card-width);
+      z-index: 5;
+
+      pointer-events: auto;
+      cursor: pointer;
+
+      background: rgba(255,255,255, calc(0.06 * var(--debug-outline)));
+      border: 2px solid rgba(255,255,255, calc(0.7 * var(--debug-outline)));
+      border-radius: 18px;
+
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.80);
+      box-shadow: 0 18px 55px rgba(0,0,0,.55);
+    }
+    .card:focus-visible{
+      outline: 3px solid rgba(255,255,255,.9);
+      outline-offset: 6px;
+    }
+
+    #card1{ left: var(--card-left-start); }
+    #card2{ left: calc(var(--card-left-start) + (var(--card-width) + var(--card-gap))*1); }
+    #card3{ left: calc(var(--card-left-start) + (var(--card-width) + var(--card-gap))*2); }
+    #card4{ left: calc(var(--card-left-start) + (var(--card-width) + var(--card-gap))*3); }
+
+    body.lens-active{ cursor: none; }
+
+    #lens{
+      position: fixed;
+      width: var(--lens-size);
+      height: var(--lens-size);
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transform: translate(-9999px,-9999px);
+      transition: none;
+      will-change: transform;
+    }
+    #lens.show{ opacity: 1; }
+    #lens img{ width: 100%; height: 100%; object-fit: contain; display:block; }
+
+    #credits { display: none; }
+    #credits.show { display: block; }
+
+    #soundToggle{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 10000;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(0,0,0,.55);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+ 
