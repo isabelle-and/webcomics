@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Webcomic - Layouts (lupa instantânea + áudio)</title>
+
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Lupa -->
+  <div id="lens" aria-hidden="true">
+    <img src="Layout/Lupa.png" alt="" loading="eager" decoding="async">
+  </div>
+
+  <!-- Botão som -->
+  <button id="soundToggle" type="button" aria-label="Ativar ou desativar som">🔇 Som: OFF</button>
+
+  <!-- TÍTULO -->
+  <section class="page" id="title">
+    <div class="stage">
+      <img class="art" src="Layout/Titulo.png" alt="">
+    </div>
+  </section>
+
+  <!-- PÁG.01 -->
+  <section class="page" id="p1">
+    <div class="stage">
+      <img class="art" src="Layout/Layouts_pag01.png" alt="">
+    </div>
+  </section>
+
+  <!-- PÁG.02 -->
+  <section class="page" id="p2">
+    <div class="stage" id="p2Stage">
+      <img class="art" id="p2Base" src="Layout/Layouts_pag02v1.png" alt="">
+      <img class="art" id="p2Reveal" src="Layout/Layouts_pag02v2.png" alt="">
+      <div class="overlay">
+        <button id="btnPegarLupa" type="button" aria-label="Pegar Lupa"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PÁG.03 -->
+  <section class="page" id="p3">
+    <div class="stage">
+      <img class="art" src="Layout/Layouts_pag03.png" alt="">
+      <div class="overlay">
+        <button class="card" id="card1" type="button" aria-label="Card 1"></button>
+        <button class="card" id="card2" type="button" aria-label="Card 2"></button>
+        <button class="card" id="card3" type="button" aria-label="Card 3"></button>
+        <button class="card" id="card4" type="button" aria-label="Card 4"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PÁG.04 -->
+  <section class="page" id="p4">
+    <div class="stage">
+      <img class="art" id="p4Image" src="Layout/Layouts_pag04v1.png" alt="">
+    </div>
+  </section>
+
+
+  <section class="page" id="credits">
+    <div class="stage">
+      <img class="art" src="Layout/Creditos.png" alt="">
+    </div>
+  </section>
+
+ 
+    <script src="script.js"></script>
+</body>
+</html>
+
+
